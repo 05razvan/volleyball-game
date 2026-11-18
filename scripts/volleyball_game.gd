@@ -57,7 +57,7 @@ func _build_environment() -> void:
 	environment.background_color = Color("ded9cf")
 	environment.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
 	environment.ambient_light_color = Color("fff3df")
-	environment.ambient_light_energy = 0.82
+	environment.ambient_light_energy = 0.52
 	environment.tonemap_mode = Environment.TONE_MAPPER_FILMIC
 	environment_node.environment = environment
 	add_child(environment_node)
@@ -65,7 +65,7 @@ func _build_environment() -> void:
 	var sun := DirectionalLight3D.new()
 	sun.rotation_degrees = Vector3(-58.0, -28.0, 0.0)
 	sun.light_color = Color("fff0d5")
-	sun.light_energy = 1.25
+	sun.light_energy = 0.72
 	sun.shadow_enabled = true
 	add_child(sun)
 

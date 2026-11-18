@@ -141,7 +141,7 @@ func _physics_process(delta: float) -> void:
 	_update_movement(delta, controls.move, controls.dash, controls.strafe)
 	_update_actions(delta, controls)
 	_update_pose(delta)
-	if is_instance_valid(aim_marker):
+	if is_instance_valid(aim_marker) and aim_marker.is_inside_tree():
 		aim_marker.global_position = aim_target + Vector3(0.0, 0.035, 0.0)
 	var action_value := spike_charge if spike_charge > 0.0 else set_charge
 	var action_name := "SPIKE" if spike_charge > 0.0 else "SET" if set_charge > 0.0 else "READY"
