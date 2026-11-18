@@ -103,8 +103,8 @@ func _build_gym_shell() -> void:
 	_add_box("RightWall", Vector3(0.3, 8.0, 28.0), Vector3(11.0, 4.0, 0.0), Color("e1ddd4"), false)
 	for side in [-1.0, 1.0]:
 		for row in range(5):
-			var x := side * (6.5 + row * 0.62)
-			var height := 0.32 + row * 0.34
+			var x: float = side * (6.5 + row * 0.62)
+			var height: float = 0.32 + row * 0.34
 			_add_box("Bleacher", Vector3(0.62, 0.22, 18.0), Vector3(x, height, 0.0), Color("c94f68") if row % 2 == 0 else Color("e1687e"), false)
 	for z in [-13.82, 13.82]:
 		for x in [-7.2, -2.4, 2.4, 7.2]:

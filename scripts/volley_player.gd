@@ -191,7 +191,7 @@ func _bot_controls(delta: float) -> Dictionary:
 				else:
 					primary = true
 	else:
-		var server := game.get_server()
+		var server: VolleyPlayer = game.get_server()
 		if server == self:
 			target = global_position
 			ai_timer += delta
