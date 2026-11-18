@@ -40,7 +40,9 @@ jobs:
       - name: Export web build
         run: |
           mkdir -p build/web
-          godot --headless --path . --export-release Web build/web/index.html
+          BUILD_NAME="game-${GITHUB_SHA::8}"
+          godot --headless --path . --export-release Web "build/web/${BUILD_NAME}.html"
+          mv "build/web/${BUILD_NAME}.html" build/web/index.html
           touch build/web/.nojekyll
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
