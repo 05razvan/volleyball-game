@@ -420,7 +420,7 @@ func _on_impact(strength: float) -> void:
 	_play_tone(lerpf(220.0, 105.0, strength), 0.045 + strength * 0.04, 0.12 + strength * 0.18)
 	for viewport in [viewport_one, viewport_two]:
 		if is_instance_valid(viewport):
-			var active_camera := viewport.get_camera_3d()
+			var active_camera: Camera3D = viewport.get_camera_3d()
 			if active_camera is FollowCamera:
 				active_camera.punch(strength * 0.025)
 

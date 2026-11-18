@@ -31,7 +31,11 @@ jobs:
           mv /tmp/export-templates/templates/* "$HOME/.local/share/godot/export_templates/4.7.2.stable/"
       - name: Import project and run tests
         run: |
-          godot --headless --editor --path . --quit
+          set -o pipefail
+          godot --headless --editor --path . --quit 2>&1 | tee /tmp/godot-import.log
+          if grep -qE "SCRIPT ERROR|Parse Error|Failed to load script" /tmp/godot-import.log; then
+            exit 1
+          fi
           godot --headless --path . --script res://tests/run_tests.gd
       - name: Export web build
         run: |
